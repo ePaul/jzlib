@@ -15,8 +15,8 @@
     <javac srcdir="${src}"
 	   destdir="${build}"
 	   encoding="US-ASCII"
-	   source="1.1"
-	   target="1.1"
+	   source="1.5"
+	   target="1.5"
 	   includeantruntime="false"
 	   >
       <include name="com/jcraft/jzlib/*" />
@@ -27,6 +27,7 @@
 	  description="create the javadoc">
     <mkdir dir="${javadoc}"/>
     <javadoc sourcepath="${src}"
+             source="1.5"
 	     destdir="${javadoc}"
 	     classpath="${build}"
 	     encoding="US-ASCII"
