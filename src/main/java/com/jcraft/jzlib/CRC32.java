@@ -74,6 +74,19 @@ final class CRC32 implements Checksum, Cloneable {
     return (long)(v&0xffffffffL);
   }
 
+  /**
+   * Combines two CRC-32 checksums into one. For two sequences of bytes,
+   * {@code seq1} and {@code seq2} with lengths {@code len1} and {@code len2},
+   * CRC-32 checksums were calculated for each, {@code crc1} and
+   * {@code crc2}. This method returns the CRC-32 checksum of {@code seq1}
+   *  and {@code seq2} concatenated, requiring only {@code crc1},
+   * {@code crc2}, and {@code len2}.
+   * @param crc1 the checksum of the first sequence.
+   * @param crc2 the checksum of the second sequence.
+   * @param len2 the length of the second sequence (in bytes).
+   * @return the CRC-32 checksum of the concatenated sequence
+   *      {@code seq1 + seq2}.
+   */
   // The following logic has come from zlib.1.2.
   private static final int GF2_DIM = 32;
   static long combine(long crc1, long crc2, long len2){

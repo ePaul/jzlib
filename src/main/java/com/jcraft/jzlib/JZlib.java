@@ -79,7 +79,14 @@ final public class JZlib{
    */
   public static String version(){return version;}
 
+  /**
+   * The maximum window size exponent, for use with {@link Deflater}.
+   */
   static final public int MAX_WBITS=15;        // 32K LZ77 window
+
+  /**
+   * The default window size exponent (the same as the maximum, now).
+   */
   static final public int DEF_WBITS=MAX_WBITS;
 
 
@@ -283,10 +290,36 @@ final public class JZlib{
    */
   static final public int Z_VERSION_ERROR=-6;
 
+  /**
+   * Combines two Adler-32 checksums into one. For two sequences of bytes,
+   * {@code seq1} and {@code seq2} with lengths {@code len1} and {@code len2},
+   * Adler-32 checksums were calculated for each, {@code adler1} and
+   * {@code adler2}. This method returns the Adler-32 checksum of {@code seq1}
+   *  and {@code seq2} concatenated, requiring only {@code adler1},
+   * {@code adler2}, and {@code len2}.
+   * @param adler1 the checksum of the first sequence.
+   * @param adler2 the checksum of the second sequence.
+   * @param len2 the length of the second sequence (in bytes).
+   * @return the Adler-32 checksum of the concatenated sequence
+   *      {@code seq1 + seq2}.
+   */
   public static long adler32_combine(long adler1, long adler2, long len2){
     return Adler32.combine(adler1, adler2, len2);
   }
 
+  /**
+   * Combines two CRC-32 checksums into one. For two sequences of bytes,
+   * {@code seq1} and {@code seq2} with lengths {@code len1} and {@code len2},
+   * CRC-32 checksums were calculated for each, {@code crc1} and
+   * {@code crc2}. This method returns the CRC-32 checksum of {@code seq1}
+   *  and {@code seq2} concatenated, requiring only {@code crc1},
+   * {@code crc2}, and {@code len2}.
+   * @param crc1 the checksum of the first sequence.
+   * @param crc2 the checksum of the second sequence.
+   * @param len2 the length of the second sequence (in bytes).
+   * @return the CRC-32 checksum of the concatenated sequence
+   *      {@code seq1 + seq2}.
+   */
   public static long crc32_combine(long crc1, long crc2, long len2){
     return CRC32.combine(crc1, crc2, len2);
   }

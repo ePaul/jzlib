@@ -78,6 +78,19 @@ final class Adler32 implements Checksum {
   }
 
   // The following logic has come from zlib.1.2.
+  /**
+   * Combines two Adler-32 checksums into one. For two sequences of bytes,
+   * {@code seq1} and {@code seq2} with lengths {@code len1} and {@code len2},
+   * Adler-32 checksums were calculated for each, {@code adler1} and
+   * {@code adler2}. This method returns the Adler-32 checksum of {@code seq1}
+   *  and {@code seq2} concatenated, requiring only {@code adler1},
+   * {@code adler2}, and {@code len2}.
+   * @param adler1 the checksum of the first sequence.
+   * @param adler2 the checksum of the second sequence.
+   * @param len2 the length of the second sequence (in bytes).
+   * @return the Adler-32 checksum of the concatenated sequence
+   *      {@code seq1 + seq2}.
+   */
   static long combine(long adler1, long adler2, long len2){
     long BASEL = (long)BASE;
     long sum1;
