@@ -252,14 +252,14 @@ public class ZStream{
    *</p>
    *<p>
    *  If a preset dictionary is needed after this call (see
-   *  {@link #inflateSetDictionary}), {@code inflate} sets {@link #adler}
-   *  to the adler32 checksum of the dictionary chosen by the compressor
-   *  and returns {@link JZlib#Z_NEED_DICT Z_NEED_DICT}; otherwise it
-   *  sets {@link #adler}
-   *  to the adler32 checksum of all output produced so far (that is,
-   *  {@link #total_out} bytes) and returns {@link JZlib#Z_OK Z_OK},
+   *  {@link #inflateSetDictionary}), {@code inflate} returns
+   *  {@link JZlib#Z_NEED_DICT Z_NEED_DICT}, {@link #getAdler()} then
+   *  will return the Adler32 checksum of the dictionary chosen by the
+   *  compressor; otherwise it returns {@link JZlib#Z_OK Z_OK},
    *  {@link JZlib#Z_STREAM_END Z_STREAM_END} or an error code as
-   *  described below.
+   *  described below and {@link #getAdler} will return the
+   *  Adler32 checksum of all output produced so far (that is,
+   *  {@link #total_out} bytes).
    *  At the end of the stream (for zlib format), {@code inflate()} checks
    *  that its computed adler32 checksum is equal to that saved by the
    *  compressor and returns {@link JZlib#Z_STREAM_END Z_STREAM_END} only if the
@@ -270,7 +270,7 @@ public class ZStream{
    *   or plain deflate data, depending on the inflateInit method used
    *  (and its {@code nowrap} parameter).
    *</p>
-   * @param flush one of
+   * @param f one of
    *    {@link JZlib#Z_NO_FLUSH Z_NO_FLUSH},
    *    {@link JZlib#Z_SYNC_FLUSH Z_SYNC_FLUSH}, and
    *    {@link JZlib#Z_FINISH Z_FINISH}.
@@ -392,9 +392,9 @@ public class ZStream{
    *  This function must be called immediately after a call of {@link #inflate},
    *  if that call returned {@link JZlib#Z_NEED_DICT Z_NEED_DICT}. The
    *  dictionary chosen by the compressor can be determined from the
-   *  adler32 value returned by that call of inflate. The compressor and
-   *  decompressor must use exactly the same dictionary (see
-   * {@link #deflateSetDictionary}).
+   *  adler32 value returned by {@link #getAdler} after that call of inflate.
+   *  The compressor and decompressor must use exactly the same dictionary
+   *  (see {@link #deflateSetDictionary}).
    * </p>
    * <p>
    *  For raw inflate (i.e. decompressing plain deflate data without
@@ -719,14 +719,14 @@ public class ZStream{
    * use at most the window size minus 262 bytes of the provided dictionary.
    *</p>
    *<p>
-   * Upon return of this function, {@link #adler} is set to the adler32
+   * After return of this function, {@link #getAdler} will return the Adler32
    * value of the dictionary; the decompressor may later use this value
    * to determine which dictionary has been used by the compressor.
-   * (The adler32 value applies to the whole dictionary even if only a
+   * (The Adler32 value applies to the whole dictionary even if only a
    * subset of the dictionary is actually used by the compressor.) If a
    * raw deflate was requested (i.e. {@link #deflateInit(int,boolean)}
    * was invoked with {@code nowrap == true}, then the adler32 value is
-   * not computed and {@link #adler} is not set.
+   * not computed and cannot be retrieved from {@link #getAdler}.
    *</p>
    * <p>
    *  {@code deflateSetDictionary} does not perform any compression:
@@ -802,6 +802,14 @@ public class ZStream{
     return len;
   }
 
+  /**
+   * Returns the Adler32 checksum of the data processed until now.
+   * If the last called method was {@link #deflateSetDictionary}, we return
+   * the checksum of this dictionary instead. If the last called method
+   * was {@link #inflate} which returned with
+   * {@link JZlib#Z_NEED_DICT Z_NEED_DICT}, this is the checksum of the
+   * needed dictionary.
+   */
   public long getAdler(){
     return adler.getValue();
   }
