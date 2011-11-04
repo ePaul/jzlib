@@ -30,8 +30,24 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package com.jcraft.jzlib;
 import java.io.*;
 
+/**
+ * An inflating stream wrapper around a compressed stream.
+ * This stream uses an {@link Inflater} to do the actual work -
+ * such an Inflater can either be passed to the constructor or
+ * will be created internally. ({@link #getInflater} can be used
+ * to access this Inflater.)
+ */
 public class InflaterInputStream extends FilterInputStream {
+
+  /**
+   * The internal work horse which does the inflation.
+   */
   protected final Inflater inflater;
+
+  /**
+   * The buffer used for raw (compressed) data from our
+   * source stream, to be fed to the Inflater.
+   */
   protected byte[] buf;
 
   private boolean closed = false;
@@ -40,22 +56,61 @@ public class InflaterInputStream extends FilterInputStream {
 
   private boolean close_in = true;
 
+  /**
+   * The default buffer size.
+   */
   protected static final int DEFAULT_BUFSIZE = 512;
 
+  /**
+   * Creates a new InflaterInputStream which reads data in zlib format
+   * from the given InputStream, using maximum window size and default
+   * input buffer size.
+   * @param in the source input stream, from which data is read to
+   *  be inflated. It will be closed on closing this stream.
+   */
   public InflaterInputStream(InputStream in) throws IOException {
     this(in, new Inflater());
     myinflater = true;
   }
 
+  /**
+   * Creates a new InflaterInputStream which reads data from the
+   * given InputStream and decompresses it using the given Inflater
+   * and the default input buffer size.
+   * @param in the source input stream, from which data is read to
+   *  be inflated. It will be closed on closing this stream.
+   * @param inflater the Inflater which will do the work.
+   */
   public InflaterInputStream(InputStream in, Inflater inflater) throws IOException {
     this(in, inflater, DEFAULT_BUFSIZE);
   }
 
+  /**
+   * Creates a new InflaterInputStream which reads data from the
+   * given InputStream  and decompresses it using the given Inflater and
+   * the given input buffer size.
+   * @param in the source input stream, from which data is read to
+   *  be inflated. It will be closed on closing this stream.
+   * @param inflater the Inflater which will do the work.
+   * @param size the size of the internal buffer.
+   */
   public InflaterInputStream(InputStream in,
                              Inflater inflater, int size) throws IOException {
     this(in, inflater, size, true);
   }
 
+  /**
+   * Creates a new InflaterInputStream which reads data from the
+   * given InputStream and decompresses it using the given Inflater,
+   * using the given input buffer size.
+   * @param in the source input stream, from which data is read to
+   *  be inflated.
+   * @param inflater the Inflater which will do the work.
+   * @param size the size of the internal buffer.
+   * @param close_in if {@code true}, the source input stream will closed
+   *  on closing this stream. If {@code false}, it will left open, allowing
+   *  more data to be read from it directly.
+   */
   public InflaterInputStream(InputStream in,
                              Inflater inflater,
                              int size, boolean close_in) throws IOException {
@@ -71,15 +126,37 @@ public class InflaterInputStream extends FilterInputStream {
     this.close_in = close_in;
   }
 
+  /**
+   * Indicates whether we have an own (internal) Inflater ({@code true})
+   * or one supplied to the constructor ({@code false}). In the first
+   * case, it will be closed on closing this stream.
+   */
   protected boolean myinflater = false;
 
+  /**
+   * A one-byte buffer used by {@link #read()}.
+   */
   private byte[] byte1 = new byte[1];
 
+  /**
+   * reads one uncompressed byte from the stream.
+   * @return -1, if we arrived at the end of input,
+   *   the read byte (as an {@code int} in the range [0, 255]) otherwise.
+   */
   public int read() throws IOException {
     if (closed) { throw new IOException("Stream closed"); }
     return read(byte1, 0, 1) == -1 ? -1 : byte1[0] & 0xff;
   }
 
+  /**
+   * Reads some bytes of inflated data into an array.
+   * 
+   * @param b the array into which to put the read data.
+   * @param off the offset in the array from which
+   *    on the inflated data should be put.
+   * @param len the size of the array segment into which to put the data.
+   * @return the number of bytes read, or -1 if we arrived at end of stream.
+   */
   public int read(byte[] b, int off, int len) throws IOException {
     if (closed) { throw new IOException("Stream closed"); }
     if (b == null) {
@@ -120,6 +197,13 @@ public class InflaterInputStream extends FilterInputStream {
     return n;
   }
 
+  /**
+   * returns an estimation for the number of bytes which can be
+   * read from this stream.
+   * @return
+   *     either 0 (if we are already at end of file) or 1 (otherwise).
+   * @throws IOException if the stream is already closed.
+   */
   public int available() throws IOException {
     if (closed) { throw new IOException("Stream closed"); }
     if (eof) {
@@ -130,8 +214,16 @@ public class InflaterInputStream extends FilterInputStream {
     }
   }
 
+  /**
+   * A buffer used by {@link #skip}.
+   */
   private byte[] b = new byte[512];
 
+  /**
+   * Skips a number of deflated bytes.
+   * @param n a suggestion of how many bytes we should skip.
+   * @return the number of bytes really skipped (which might be less).
+   */
   public long skip(long n) throws IOException {
     if (n < 0) {
       throw new IllegalArgumentException("negative skip length");
@@ -156,6 +248,9 @@ public class InflaterInputStream extends FilterInputStream {
     return total;
   }
 
+  /**
+   * closes the stream.
+   */
   public void close() throws IOException {
     if (!closed) {
       if (myinflater)
@@ -166,6 +261,9 @@ public class InflaterInputStream extends FilterInputStream {
     }
   }
 
+  /**
+   * fills the buffer by input from our source stream.
+   */
   protected void fill() throws IOException {
     if (closed) { throw new IOException("Stream closed"); }
     int len = in.read(buf, 0, buf.length);
@@ -180,25 +278,50 @@ public class InflaterInputStream extends FilterInputStream {
     inflater.setInput(buf, 0, len, true);
   }
 
+  /**
+   * returns always {@code false} to indicate that {@link #mark} is not
+   * supported by this stream.
+   */
   public boolean markSupported() {
     return false;
   }
 
+  /**
+   * Does nothing.
+   */
   public synchronized void mark(int readlimit) {
   }
 
+  /**
+   * Throws always an exception, because {@link #mark} and {@code reset}
+   * are not supported by this stream.
+   */
   public synchronized void reset() throws IOException {
     throw new IOException("mark/reset not supported");
   }
 
+  /**
+   * gets the total number of bytes read from our source stream
+   * (i.e. compressed data).
+   */
   public long getTotalIn() {
     return inflater.getTotalIn();
   }
 
+  /**
+   * gets the total number of bytes read from this stream
+   * (i.e. decompressed data).
+   */
   public long getTotalOut() {
     return inflater.getTotalOut();
   }
 
+  /**
+   * Returns remaining available input data which was not yet
+   * used for deflating.
+   * This is mainly useful when in an application protocol other
+   * data follows after the deflated one (i.e. after "end-of-file").
+   */
   public byte[] getAvailIn() {
     if(inflater.avail_in<=0)
       return null;
@@ -208,6 +331,9 @@ public class InflaterInputStream extends FilterInputStream {
     return tmp;
   }
 
+  /**
+   * Makes sure that our Inflater has read and parsed the whole header.
+   */
   public void readHeader() throws IOException {
 
     byte[] empty = "".getBytes();
@@ -232,6 +358,9 @@ public class InflaterInputStream extends FilterInputStream {
     while(inflater.istate.inParsingHeader());
   }
 
+  /**
+   * Returns the Inflater used by this stream.
+   */
   public Inflater getInflater(){
     return inflater;
   }
