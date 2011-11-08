@@ -1,0 +1,917 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+Deflater (JZlib API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Deflater (JZlib API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Deflater.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/Deflate.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/DeflaterOutputStream.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/Deflater.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Deflater.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.jcraft.jzlib.ZStream">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.jcraft.jzlib</FONT>
+<BR>
+Class Deflater</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../com/jcraft/jzlib/ZStream.html" title="class in com.jcraft.jzlib">com.jcraft.jzlib.ZStream</A>
+      <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>com.jcraft.jzlib.Deflater</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public final class <B>Deflater</B><DT>extends <A HREF="../../../com/jcraft/jzlib/ZStream.html" title="class in com.jcraft.jzlib">ZStream</A></DL>
+</PRE>
+
+<P>
+The core compression class: A pair of buffers with
+ some metadata for compression, and
+ the necessary compression methods.
+<p>
+ This corresponds to the
+ <a href="http://zlib.net/manual.html#Stream">z_stream_s</a>
+ data structure (and z_streamp pointer type) in zlib, together
+ with the deflating functions defined in zlib.h.
+</p>
+ (You should not use the inflating methods inherited
+ from our parent class.)
+<P>
+
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib"><CODE>Inflater</CODE></A></DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.jcraft.jzlib.ZStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.jcraft.jzlib.<A HREF="../../../com/jcraft/jzlib/ZStream.html" title="class in com.jcraft.jzlib">ZStream</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in">avail_in</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out">avail_out</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#msg">msg</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in">next_in</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in_index">next_in_index</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out">next_out</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out_index">next_out_index</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#total_in">total_in</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#total_out">total_out</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater()">Deflater</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Deflater using an Adler32 checksum, but
+ otherwise uninitialized.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater(int)">Deflater</A></B>(int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Deflater using the given level and the maximum
+ lookback window, creating zlib-formatted data.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater(int, boolean)">Deflater</A></B>(int&nbsp;level,
+         boolean&nbsp;nowrap)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Deflater using the given level, maximum lookback window
+ and nowrap-mode.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater(int, int)">Deflater</A></B>(int&nbsp;level,
+         int&nbsp;bits)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Deflater using the given level and 
+ lookback window size, producing zlib-formatted data.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater(int, int, boolean)">Deflater</A></B>(int&nbsp;level,
+         int&nbsp;bits,
+         boolean&nbsp;nowrap)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Deflater,
+ using the given compression level and given lookback window size,
+ producing either zlib or plain deflate format.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#Deflater(int, int, int)">Deflater</A></B>(int&nbsp;level,
+         int&nbsp;bits,
+         int&nbsp;memlevel)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#copy(com.jcraft.jzlib.Deflater)">copy</A></B>(<A HREF="../../../com/jcraft/jzlib/Deflater.html" title="class in com.jcraft.jzlib">Deflater</A>&nbsp;src)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#deflate(int)">deflate</A></B>(int&nbsp;flush)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>deflate</code> compresses as much data as possible, and stops when the
+ input buffer becomes empty or the output buffer becomes full.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#end()">end</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All dynamically allocated data structures for this stream are freed.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#finished()">finished</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#init(int)">init</A></B>(int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializes the stream for deflation in zlib format,
+ using the given compression level and the maximum lookback window size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#init(int, boolean)">init</A></B>(int&nbsp;level,
+     boolean&nbsp;nowrap)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializes the stream for deflation,
+ using the given compression level and the maximum lookback window size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#init(int, int)">init</A></B>(int&nbsp;level,
+     int&nbsp;bits)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initializes the stream for deflation in zlib format,
+ using the given compression level and lookback window size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#init(int, int, boolean)">init</A></B>(int&nbsp;level,
+     int&nbsp;bits,
+     boolean&nbsp;nowrap)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes the stream for deflation,
+ using the given compression level and given lookback window size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#init(int, int, int)">init</A></B>(int&nbsp;level,
+     int&nbsp;bits,
+     int&nbsp;memlevel)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#params(int, int)">params</A></B>(int&nbsp;level,
+       int&nbsp;strategy)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dynamically update the compression level and compression strategy.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/Deflater.html#setDictionary(byte[], int)">setDictionary</A></B>(byte[]&nbsp;dictionary,
+              int&nbsp;dictLength)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes the compression dictionary from the given byte sequence,
+ without producing any compressed output.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.jcraft.jzlib.ZStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.jcraft.jzlib.<A HREF="../../../com/jcraft/jzlib/ZStream.html" title="class in com.jcraft.jzlib">ZStream</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateEnd()">deflateEnd</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int)">deflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int, boolean)">deflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int, int)">deflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int, int, boolean)">deflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int, int, int)">deflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateParams(int, int)">deflateParams</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateSetDictionary(byte[], int)">deflateSetDictionary</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#free()">free</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getAdler()">getAdler</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getAvailIn()">getAvailIn</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getAvailOut()">getAvailOut</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getMessage()">getMessage</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getNextIn()">getNextIn</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getNextInIndex()">getNextInIndex</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getNextOut()">getNextOut</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getNextOutIndex()">getNextOutIndex</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getTotalIn()">getTotalIn</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getTotalOut()">getTotalOut</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflate(int)">inflate</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateEnd()">inflateEnd</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateFinished()">inflateFinished</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateInit()">inflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateInit(boolean)">inflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateInit(int)">inflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateInit(int, boolean)">inflateInit</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateSetDictionary(byte[], int)">inflateSetDictionary</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateSync()">inflateSync</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateSyncPoint()">inflateSyncPoint</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setAvailIn(int)">setAvailIn</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setAvailOut(int)">setAvailOut</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setInput(byte[])">setInput</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setInput(byte[], boolean)">setInput</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setInput(byte[], int, int, boolean)">setInput</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setNextIn(byte[])">setNextIn</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setNextInIndex(int)">setNextInIndex</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setNextOut(byte[])">setNextOut</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setNextOutIndex(int)">setNextOutIndex</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setOutput(byte[])">setOutput</A>, <A HREF="../../../com/jcraft/jzlib/ZStream.html#setOutput(byte[], int, int)">setOutput</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="Deflater()"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>()</PRE>
+<DL>
+<DD>Creates a new Deflater using an Adler32 checksum, but
+ otherwise uninitialized. Use one of the <code>init</code> methods
+ after construction.
+ Alternatively, use one of the other constructors.
+<P>
+</DL>
+<HR>
+
+<A NAME="Deflater(int)"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>(int&nbsp;level)
+         throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DD>Creates a new Deflater using the given level and the maximum
+ lookback window, creating zlib-formatted data.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+  <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE></DL>
+</DL>
+<HR>
+
+<A NAME="Deflater(int, boolean)"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>(int&nbsp;level,
+                boolean&nbsp;nowrap)
+         throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DD>Creates a new Deflater using the given level, maximum lookback window
+ and nowrap-mode.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+  <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>nowrap</CODE> - if <code>true</code>, the stream uses the plain deflate
+    format. If <code>false</code>, the stream uses the <code>zlib</code> format
+    (which includes a header and checksum).
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE></DL>
+</DL>
+<HR>
+
+<A NAME="Deflater(int, int)"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>(int&nbsp;level,
+                int&nbsp;bits)
+         throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DD>Creates a new Deflater using the given level and 
+ lookback window size, producing zlib-formatted data.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+  <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>bits</CODE> - the base two logarithm of the window size (e.g. the size
+   of the history buffer). This should be in the range <code>8 .. 15</code>,
+   resulting in window sizes between 256 and 32768 bytes.
+   Larger values result in better compression with more memory usage.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE></DL>
+</DL>
+<HR>
+
+<A NAME="Deflater(int, int, boolean)"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>(int&nbsp;level,
+                int&nbsp;bits,
+                boolean&nbsp;nowrap)
+         throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DD>Creates a new Deflater,
+ using the given compression level and given lookback window size,
+ producing either zlib or plain deflate format.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>bits</CODE> - the base two logarithm of the window size (e.g. the size
+   of the history buffer). This should be in the range <code>8 .. 15</code>,
+   resulting in window sizes between 256 and 32768 bytes.
+   Larger values result in better compression with more memory usage.<DD><CODE>nowrap</CODE> - if <code>true</code>, the stream uses the plain deflate
+    format. If <code>false</code>, the stream uses the <code>zlib</code> format
+   (which includes a header and checksum).
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE></DL>
+</DL>
+<HR>
+
+<A NAME="Deflater(int, int, int)"><!-- --></A><H3>
+Deflater</H3>
+<PRE>
+public <B>Deflater</B>(int&nbsp;level,
+                int&nbsp;bits,
+                int&nbsp;memlevel)
+         throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="init(int)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public int <B>init</B>(int&nbsp;level)</PRE>
+<DL>
+<DD>initializes the stream for deflation in zlib format,
+ using the given compression level and the maximum lookback window size.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+  <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="init(int, boolean)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public int <B>init</B>(int&nbsp;level,
+                boolean&nbsp;nowrap)</PRE>
+<DL>
+<DD>initializes the stream for deflation,
+ using the given compression level and the maximum lookback window size.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>nowrap</CODE> - if <code>true</code>, the stream uses the plain deflate
+    format. If <code>false</code>, the stream uses the <code>zlib</code> format
+    (which includes a header and checksum).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="init(int, int)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public int <B>init</B>(int&nbsp;level,
+                int&nbsp;bits)</PRE>
+<DL>
+<DD>initializes the stream for deflation in zlib format,
+ using the given compression level and lookback window size.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>bits</CODE> - the base two logarithm of the window size (e.g. the size
+   of the history buffer). This should be in the range <code>8 .. 15</code>,
+   resulting in window sizes between 256 and 32768 bytes.
+   Larger values result in better compression with more memory usage.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="init(int, int, int)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public int <B>init</B>(int&nbsp;level,
+                int&nbsp;bits,
+                int&nbsp;memlevel)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="init(int, int, boolean)"><!-- --></A><H3>
+init</H3>
+<PRE>
+public int <B>init</B>(int&nbsp;level,
+                int&nbsp;bits,
+                boolean&nbsp;nowrap)</PRE>
+<DL>
+<DD>Initializes the stream for deflation,
+ using the given compression level and given lookback window size.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>bits</CODE> - the base two logarithm of the window size (e.g. the size
+   of the history buffer). This should be in the range <code>8 .. 15</code>,
+   resulting in window sizes between 256 and 32768 bytes.
+   Larger values result in better compression with more memory usage.<DD><CODE>nowrap</CODE> - if <code>true</code>, the stream uses the plain deflate
+    format. If <code>false</code>, the stream uses the <code>zlib</code> format
+   (which includes a header and checksum).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="deflate(int)"><!-- --></A><H3>
+deflate</H3>
+<PRE>
+public int <B>deflate</B>(int&nbsp;flush)</PRE>
+<DL>
+<DD><code>deflate</code> compresses as much data as possible, and stops when the
+ input buffer becomes empty or the output buffer becomes full. It may
+ introduce some output latency (reading input without producing any
+ output) except when forced to flush.
+<p>
+ The detailed semantics are as follows. <code>deflate</code> performs one or
+ both of the following actions:
+</p>
+<ul>
+ <li>Compress more input from <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in"><CODE>ZStream.next_in</CODE></A>, starting at
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in_index"><CODE>ZStream.next_in_index</CODE></A>, and update <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in_index"><CODE>ZStream.next_in_index</CODE></A> and
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in"><CODE>ZStream.avail_in</CODE></A> accordingly.
+   If not all input can be processed (because there is not enough room in
+   the output buffer), <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in_index"><CODE>ZStream.next_in_index</CODE></A> and <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in"><CODE>ZStream.avail_in</CODE></A> are
+   updated and processing will resume at this point for the next call
+   of <code>deflate()</code>.</li>
+ <li>Provide more output in <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out"><CODE>ZStream.next_out</CODE></A>, starting at
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out_index"><CODE>ZStream.next_out_index</CODE></A> and update <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out_index"><CODE>ZStream.next_out_index</CODE></A> and
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> accordingly.
+   This action is forced if the parameter <code>flush</code> is non zero (i.e.
+   not <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_FLUSH"><CODE>Z_NO_FLUSH</CODE></A>). Forcing flush frequently
+   degrades the  compression ratio, so this parameter should be set
+   only when necessary (in interactive applications). Some output may
+   be provided even if <code>flush</code> is not set.</li>
+</ul>
+<p>
+ Before the call of <code>deflate()</code>, the application should ensure that
+ at least one of the actions is possible, by providing more input and/or
+ consuming more output, and updating <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in"><CODE>ZStream.avail_in</CODE></A> or <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A>
+ accordingly; <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> should never be zero before the call.
+ The application can consume the compressed output when it wants, for
+ example when the output buffer is full (<A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A><code>== 0</code>), or
+ after each call of <code>deflate()</code>. If deflate returns
+  <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A>
+ and with zero <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A>, it must be called again after making room
+ in the output buffer because there might be more output pending.
+</p>
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../com/jcraft/jzlib/ZStream.html#deflate(int)">deflate</A></CODE> in class <CODE><A HREF="../../../com/jcraft/jzlib/ZStream.html" title="class in com.jcraft.jzlib">ZStream</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>flush</CODE> - whether and how to flush output.
+  <p>
+   Normally the parameter <code>flush</code> is set to
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_FLUSH"><CODE>Z_NO_FLUSH</CODE></A>,
+   which allows <code>deflate</code> to decide how much data to accumulate
+   before producing output, in order to maximize compression.
+  </p>
+  <p>
+   If the parameter <code>flush</code> is set to
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_SYNC_FLUSH"><CODE>Z_SYNC_FLUSH</CODE></A>, all
+   pending output is flushed to the output buffer and the output is
+   aligned on a byte boundary, so that the decompressor can get all
+   input data available so far. (In particular <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in"><CODE>ZStream.avail_in</CODE></A> is
+   zero after the call if enough output space has been provided
+   before the call.) <em>Flushing may degrade compression for some
+   compression algorithms and so it should be used only when
+   necessary</em>. This completes the current deflate block and follows
+   it with an empty stored block that is three bits plus filler bits
+   to the next byte, followed by four bytes (00 00 ff ff).
+  </p>
+  <p>
+   If <code>flush</code> is set to
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_PARTIAL_FLUSH"><CODE>Z_PARTIAL_FLUSH</CODE></A>, all pending
+   output is flushed to the output buffer, but the output is not aligned
+   to a byte boundary. All of the input data so far will be available to
+   the decompressor, as for <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_SYNC_FLUSH"><CODE>Z_SYNC_FLUSH</CODE></A>.
+   This completes
+   the current deflate block and follows it with an empty fixed codes
+   block that is 10 bits long. This assures that enough bytes are output
+   in order for the decompressor to finish the block before the empty
+   fixed code block.
+  </p>
+  <p>
+   If <code>flush</code> is set to <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FULL_FLUSH"><CODE>Z_FULL_FLUSH</CODE></A>,
+   all output is flushed as with <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_SYNC_FLUSH"><CODE>Z_SYNC_FLUSH</CODE></A>,
+   and the compression
+   state is reset so that decompression can restart from this point
+   if previous compressed data has been damaged or if random access
+   is desired. Using <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FULL_FLUSH"><CODE>Z_FULL_FLUSH</CODE></A> too
+   often can seriously degrade compression.
+   On the decompression side, such reset points can be found with
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateSync()"><CODE>ZStream.inflateSync()</CODE></A>.
+  </p>
+  <p>
+   If <code>deflate</code> returns with <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A><code>== 0</code>, this
+   function must be called again with the same value of the <code>flush</code>
+   parameter and more output space (updated <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A>), until
+   the flush is complete (deflate returns with non-zero <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A>).
+   In the case of a <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FULL_FLUSH"><CODE>Z_FULL_FLUSH</CODE></A> or
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_SYNC_FLUSH"><CODE>Z_SYNC_FLUSH</CODE></A>, make sure that
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> is
+   greater than six to avoid repeated flush markers due to
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A><code>== 0</code> on return.
+  </p>
+  <p>
+   If the parameter <code>flush</code> is set to <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FINISH"><CODE>Z_FINISH</CODE></A>,
+   pending input is processed, pending output is flushed and deflate
+   returns with <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_END"><CODE>Z_STREAM_END</CODE></A> if there was
+   enough output
+   space; if deflate returns with <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A>, this function
+   must be called again with <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FINISH"><CODE>Z_FINISH</CODE></A> and more output
+   space (updated <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A>) but no more input data, until
+   it returns with <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_END"><CODE>Z_STREAM_END</CODE></A> or an error.
+   After <code>deflate</code> has returned
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_END"><CODE>Z_STREAM_END</CODE></A>, the only
+   possible operation on the stream is <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateEnd()"><CODE>ZStream.deflateEnd()</CODE></A>.
+  </p>
+  <p>
+   Z_FINISH can be used immediately after <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int)"><CODE>ZStream.deflateInit(int)</CODE></A> if all
+   the compression is to be done in a single step. In this case,
+   <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> must be large enough to compress everything.
+   If <code>deflate</code> does not return
+    <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_END"><CODE>Z_STREAM_END</CODE></A>,
+   then it must be called again as described above.
+  </p>
+<DT><B>Returns:</B><DD><ul>
+   <li><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A> if some progress
+     has been made (more input processed or more output produced),</li>
+   <li><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_END"><CODE>Z_STREAM_END</CODE></A> if all input has been
+     consumed and all output has been produced (only when <code>flush</code>
+     is set to <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FINISH"><CODE>Z_FINISH</CODE></A>),</li>
+   <li><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_ERROR"><CODE>Z_STREAM_ERROR</CODE></A> if the stream state
+     was inconsistent (for example if <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_in"><CODE>ZStream.next_in</CODE></A> or
+     <A HREF="../../../com/jcraft/jzlib/ZStream.html#next_out"><CODE>ZStream.next_out</CODE></A> was <code>null</code>),</li>
+   <li><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BUF_ERROR"><CODE>Z_BUF_ERROR</CODE></A> if no progress is possible
+     (for example <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_in"><CODE>ZStream.avail_in</CODE></A> or <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> was zero).</li>
+</ul>
+ <p>
+     Note that <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BUF_ERROR"><CODE>Z_BUF_ERROR</CODE></A> is not fatal, and
+    <code>deflate()</code> can be called again with more input and more
+    output space to continue compressing.
+ </p></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="end()"><!-- --></A><H3>
+end</H3>
+<PRE>
+public int <B>end</B>()</PRE>
+<DL>
+<DD>All dynamically allocated data structures for this stream are freed.
+ This function discards any unprocessed input and does not flush any
+ pending output.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A> if success,
+    <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_ERROR"><CODE>Z_STREAM_ERROR</CODE></A>
+    if the stream state was inconsistent,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DATA_ERROR"><CODE>Z_DATA_ERROR</CODE></A> if
+    the stream was freed prematurely (some input or output was discarded).
+    In the error case, <A HREF="../../../com/jcraft/jzlib/ZStream.html#msg"><CODE>ZStream.msg</CODE></A> may be set.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="params(int, int)"><!-- --></A><H3>
+params</H3>
+<PRE>
+public int <B>params</B>(int&nbsp;level,
+                  int&nbsp;strategy)</PRE>
+<DL>
+<DD>Dynamically update the compression level and compression strategy.
+<p>
+  This can be used to switch between compression and straight copy of
+  the input data, or to switch to a different kind of input data
+  requiring a different strategy. If the compression level is
+  changed, the input available so far is compressed with the
+  old level (and may be flushed); the new level will take effect
+  only at the next call of deflate().
+</p>
+<p>
+ Before the call of <code>deflateParams</code>, the stream state must be
+ set as for a call of <A HREF="../../../com/jcraft/jzlib/Deflater.html#deflate(int)"><CODE>deflate(int)</CODE></A>, since the currently available
+ input may have to be compressed and flushed. In particular,
+ <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> must be non-zero.
+</p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the deflation level. This should be
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_NO_COMPRESSION"><CODE>Z_NO_COMPRESSION</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_COMPRESSION"><CODE>Z_DEFAULT_COMPRESSION</CODE></A> or a
+   value between <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_SPEED"><CODE>Z_BEST_SPEED</CODE></A> (1) and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BEST_COMPRESSION"><CODE>Z_BEST_COMPRESSION</CODE></A> (9) (both inclusive).<DD><CODE>strategy</CODE> - one of <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_DEFAULT_STRATEGY"><CODE>Z_DEFAULT_STRATEGY</CODE></A>,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_FILTERED"><CODE>Z_FILTERED</CODE></A> and
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_HUFFMAN_ONLY"><CODE>Z_HUFFMAN_ONLY</CODE></A>. (See the description
+    of these constants for details on each.)
+<DT><B>Returns:</B><DD><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A> if success,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_ERROR"><CODE>Z_STREAM_ERROR</CODE></A> if the source stream
+    state was inconsistent or if a parameter was invalid,
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_BUF_ERROR"><CODE>Z_BUF_ERROR</CODE></A> if <A HREF="../../../com/jcraft/jzlib/ZStream.html#avail_out"><CODE>ZStream.avail_out</CODE></A> was zero.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setDictionary(byte[], int)"><!-- --></A><H3>
+setDictionary</H3>
+<PRE>
+public int <B>setDictionary</B>(byte[]&nbsp;dictionary,
+                         int&nbsp;dictLength)</PRE>
+<DL>
+<DD>Initializes the compression dictionary from the given byte sequence,
+ without producing any compressed output.
+<p>
+ This function must be
+  called immediately after <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int)"><CODE>ZStream.deflateInit(int)</CODE></A>, before any call
+  of <A HREF="../../../com/jcraft/jzlib/Deflater.html#deflate(int)"><CODE>deflate(int)</CODE></A>. The compressor and decompressor must use
+  exactly the same dictionary (see <A HREF="../../../com/jcraft/jzlib/ZStream.html#inflateSetDictionary(byte[], int)"><CODE>ZStream.inflateSetDictionary(byte[], int)</CODE></A>).
+</p>
+<p>
+ The dictionary should consist of strings (byte sequences) that are
+ likely to be encountered later in the data to be compressed, with
+ the most commonly used strings preferably put towards the end of
+ the dictionary. Using a dictionary is most useful when the data
+ to be compressed is short and can be predicted with good accuracy;
+ the data can then be compressed better than with the default empty
+ dictionary.
+</p>
+<p>
+ Depending on the size of the compression data structures selected
+ by <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int)"><CODE>ZStream.deflateInit(int)</CODE></A>, a part of the dictionary may in effect be
+ discarded, for example if the dictionary is larger than the window
+ size used in <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int)"><CODE>ZStream.deflateInit(int)</CODE></A>. Thus the strings most likely
+ to be useful should be put at the end of the dictionary, not at
+ the front. In addition, the current implementation of deflate will
+ use at most the window size minus 262 bytes of the provided dictionary.
+</p>
+<p>
+ After return of this function, <A HREF="../../../com/jcraft/jzlib/ZStream.html#getAdler()"><CODE>ZStream.getAdler()</CODE></A> will return the Adler32
+ value of the dictionary; the decompressor may later use this value
+ to determine which dictionary has been used by the compressor.
+ (The Adler32 value applies to the whole dictionary even if only a
+ subset of the dictionary is actually used by the compressor.) If a
+ raw deflate was requested (i.e. <A HREF="../../../com/jcraft/jzlib/ZStream.html#deflateInit(int, boolean)"><CODE>ZStream.deflateInit(int,boolean)</CODE></A>
+ was invoked with <code>nowrap == true</code>, then the adler32 value is
+ not computed and cannot be retrieved from <A HREF="../../../com/jcraft/jzlib/ZStream.html#getAdler()"><CODE>ZStream.getAdler()</CODE></A>.
+</p>
+ <p>
+  <code>deflateSetDictionary</code> does not perform any compression:
+  this will be done by deflate().
+ </p>
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>dictionary</CODE> - an array containing the dictionary (from the start).<DD><CODE>dictLength</CODE> - the length of the dictionary. (This should be at most
+    <code>dictionary.length</code>.
+<DT><B>Returns:</B><DD><A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_OK"><CODE>Z_OK</CODE></A> if success, or
+   <A HREF="../../../com/jcraft/jzlib/JZlib.html#Z_STREAM_ERROR"><CODE>Z_STREAM_ERROR</CODE></A> if a parameter is
+    invalid (such as a <code>null</code> dictionary) or the stream state
+    is inconsistent (for example if <A HREF="../../../com/jcraft/jzlib/Deflater.html#deflate(int)"><CODE>deflate(int)</CODE></A> has already
+    been called for this stream).</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="finished()"><!-- --></A><H3>
+finished</H3>
+<PRE>
+public boolean <B>finished</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copy(com.jcraft.jzlib.Deflater)"><!-- --></A><H3>
+copy</H3>
+<PRE>
+public int <B>copy</B>(<A HREF="../../../com/jcraft/jzlib/Deflater.html" title="class in com.jcraft.jzlib">Deflater</A>&nbsp;src)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Deflater.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/Deflate.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/DeflaterOutputStream.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/Deflater.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Deflater.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.jcraft.jzlib.ZStream">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+This is an inofficial Javadoc created by Pa&#365;lo Ebermann.
+        Have a look at the <a href="http://www.jcraft.com/jzlib/">official homepage</a>.
+      
+</BODY>
+</HTML>

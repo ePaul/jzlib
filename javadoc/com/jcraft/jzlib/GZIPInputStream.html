@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+GZIPInputStream (JZlib API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="GZIPInputStream (JZlib API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/GZIPInputStream.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/GZIPHeader.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/GZIPOutputStream.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/GZIPInputStream.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="GZIPInputStream.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.jcraft.jzlib.InflaterInputStream">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.jcraft.jzlib</FONT>
+<BR>
+Class GZIPInputStream</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../resources/inherit.gif" ALT="extended by ">java.io.InputStream
+      <IMG SRC="../../../resources/inherit.gif" ALT="extended by ">java.io.FilterInputStream
+          <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html" title="class in com.jcraft.jzlib">com.jcraft.jzlib.InflaterInputStream</A>
+              <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>com.jcraft.jzlib.GZIPInputStream</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>GZIPInputStream</B><DT>extends <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html" title="class in com.jcraft.jzlib">InflaterInputStream</A></DL>
+</PRE>
+
+<P>
+An inflating stream wrapper around a compressed stream in
+ gzip format.
+ In addition to its superclass' methods, it has some methods
+ to access the attributed which might have been encoded in the
+ gzip header.
+<P>
+
+<P>
+<DL>
+<DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952">RFC 1952: GZIP file
+    format specification version 4.3</a></DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_com.jcraft.jzlib.InflaterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class com.jcraft.jzlib.<A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html" title="class in com.jcraft.jzlib">InflaterInputStream</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#buf">buf</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#DEFAULT_BUFSIZE">DEFAULT_BUFSIZE</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#inflater">inflater</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#myinflater">myinflater</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_java.io.FilterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class java.io.FilterInputStream</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>in</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#GZIPInputStream(java.io.InputStream)">GZIPInputStream</A></B>(java.io.InputStream&nbsp;in)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a GZIPInputStream using the default buffer size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#GZIPInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int, boolean)">GZIPInputStream</A></B>(java.io.InputStream&nbsp;in,
+                <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                int&nbsp;size,
+                boolean&nbsp;close_in)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a GZIPInputStream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#GZIPInputStream(java.io.InputStream, int, boolean)">GZIPInputStream</A></B>(java.io.InputStream&nbsp;in,
+                int&nbsp;size,
+                boolean&nbsp;close_in)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a GZIPInputStream.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#getComment()">getComment</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the recorded file comment.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#getCRC()">getCRC</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the checksum value.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#getModifiedtime()">getModifiedtime</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the modification time from the gzip file header.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#getName()">getName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the recorded file name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#getOS()">getOS</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the recorded operation system flag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html#readHeader()">readHeader</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reads a gzip header from the source stream.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_com.jcraft.jzlib.InflaterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class com.jcraft.jzlib.<A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html" title="class in com.jcraft.jzlib">InflaterInputStream</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#available()">available</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#close()">close</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#fill()">fill</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getAvailIn()">getAvailIn</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getInflater()">getInflater</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getTotalIn()">getTotalIn</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getTotalOut()">getTotalOut</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)">mark</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#markSupported()">markSupported</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#read()">read</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#read(byte[], int, int)">read</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#reset()">reset</A>, <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#skip(long)">skip</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.io.FilterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.io.FilterInputStream</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>read</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="GZIPInputStream(java.io.InputStream)"><!-- --></A><H3>
+GZIPInputStream</H3>
+<PRE>
+public <B>GZIPInputStream</B>(java.io.InputStream&nbsp;in)
+                throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a GZIPInputStream using the default buffer size.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source stream from which to read the gzip data.
+   It will be closed when this stream is closed.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="GZIPInputStream(java.io.InputStream, int, boolean)"><!-- --></A><H3>
+GZIPInputStream</H3>
+<PRE>
+public <B>GZIPInputStream</B>(java.io.InputStream&nbsp;in,
+                       int&nbsp;size,
+                       boolean&nbsp;close_in)
+                throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a GZIPInputStream.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source stream from which to read the gzip data.<DD><CODE>size</CODE> - the size of the input buffer used for reading from the
+   source stream.<DD><CODE>close_in</CODE> - if <code>true</code>, the source input stream will closed
+  on closing this stream. If <code>false</code>, it will left open, allowing
+  more data to be read from it directly.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="GZIPInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int, boolean)"><!-- --></A><H3>
+GZIPInputStream</H3>
+<PRE>
+public <B>GZIPInputStream</B>(java.io.InputStream&nbsp;in,
+                       <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                       int&nbsp;size,
+                       boolean&nbsp;close_in)
+                throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a GZIPInputStream.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source stream from which to read the gzip data.<DD><CODE>inflater</CODE> - the inflater used to decompress the data. This deflater
+   should know how to read the gzip header data.<DD><CODE>size</CODE> - the size of the input buffer used for reading from the
+   source stream.<DD><CODE>close_in</CODE> - if <code>true</code>, the source input stream will closed
+  on closing this stream. If <code>false</code>, it will left open, allowing
+  more data to be read from it directly.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getModifiedtime()"><!-- --></A><H3>
+getModifiedtime</H3>
+<PRE>
+public long <B>getModifiedtime</B>()</PRE>
+<DL>
+<DD>Gets the modification time from the gzip file header.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the recorded modification time as seconds since the
+    Unix Epoch (1970-01-01 00:00 GMT). If 0, no time stamp is
+   available.<DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952#page-7">RFC 1952,
+      section 2.3.1</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getOS()"><!-- --></A><H3>
+getOS</H3>
+<PRE>
+public int <B>getOS</B>()</PRE>
+<DL>
+<DD>Gets the recorded operation system flag.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>one of these values:<pre>
+      0 - FAT filesystem (MS-DOS, OS/2, NT/Win32)
+      1 - Amiga
+      2 - VMS (or OpenVMS)
+      3 - Unix
+      4 - VM/CMS
+      5 - Atari TOS
+      6 - HPFS filesystem (OS/2, NT)
+      7 - Macintosh
+      8 - Z-System
+      9 - CP/M
+     10 - TOPS-20
+     11 - NTFS filesystem (NT)
+     12 - QDOS
+     13 - Acorn RISCOS
+    255 - unknown</pre><DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952#page-7">RFC 1952,
+      section 2.3.1</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName()"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public java.lang.String <B>getName</B>()</PRE>
+<DL>
+<DD>Gets the recorded file name.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>""</code> (the empty string) if there is no recorded file name,
+   otherwise the file name as recorded in the gzip header.<DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952#page-7">RFC 1952,
+      section 2.3.1</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getComment()"><!-- --></A><H3>
+getComment</H3>
+<PRE>
+public java.lang.String <B>getComment</B>()</PRE>
+<DL>
+<DD>Gets the recorded file comment.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>""</code> (the empty string) if there is no recorded file comment,
+   otherwise the file comment as recorded in the gzip header.<DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952#page-7">RFC 1952,
+      section 2.3.1</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCRC()"><!-- --></A><H3>
+getCRC</H3>
+<PRE>
+public long <B>getCRC</B>()
+            throws <A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></PRE>
+<DL>
+<DD>Gets the checksum value.
+ This method can only be called after the end of a gzip-compressed
+ data block (as the checksum is stored at the end).
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the CRC-32 check sum of the uncompressed data.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../com/jcraft/jzlib/GZIPException.html" title="class in com.jcraft.jzlib">GZIPException</A></CODE><DT><B>See Also:</B><DD><a href="http://tools.ietf.org/html/rfc1952#page-8">RFC 1952,
+      section 2.3.1</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readHeader()"><!-- --></A><H3>
+readHeader</H3>
+<PRE>
+public void <B>readHeader</B>()
+                throws java.io.IOException</PRE>
+<DL>
+<DD>Reads a gzip header from the source stream.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#readHeader()">readHeader</A></CODE> in class <CODE><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html" title="class in com.jcraft.jzlib">InflaterInputStream</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/GZIPInputStream.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/GZIPHeader.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/GZIPOutputStream.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/GZIPInputStream.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="GZIPInputStream.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_com.jcraft.jzlib.InflaterInputStream">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+This is an inofficial Javadoc created by Pa&#365;lo Ebermann.
+        Have a look at the <a href="http://www.jcraft.com/jzlib/">official homepage</a>.
+      
+</BODY>
+</HTML>

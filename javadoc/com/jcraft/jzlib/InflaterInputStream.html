@@ -1,0 +1,838 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+InflaterInputStream (JZlib API)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="InflaterInputStream (JZlib API)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InflaterInputStream.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/JZlib.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/InflaterInputStream.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InflaterInputStream.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+com.jcraft.jzlib</FONT>
+<BR>
+Class InflaterInputStream</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../resources/inherit.gif" ALT="extended by ">java.io.InputStream
+      <IMG SRC="../../../resources/inherit.gif" ALT="extended by ">java.io.FilterInputStream
+          <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>com.jcraft.jzlib.InflaterInputStream</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable</DD>
+</DL>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../com/jcraft/jzlib/GZIPInputStream.html" title="class in com.jcraft.jzlib">GZIPInputStream</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>InflaterInputStream</B><DT>extends java.io.FilterInputStream</DL>
+</PRE>
+
+<P>
+An inflating stream wrapper around a compressed stream.
+ This stream uses an <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib"><CODE>Inflater</CODE></A> to do the actual work -
+ such an Inflater can either be passed to the constructor or
+ will be created internally. (<A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getInflater()"><CODE>getInflater()</CODE></A> can be used
+ to access this Inflater.)
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;byte[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#buf">buf</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The buffer used for raw (compressed) data from our
+ source stream, to be fed to the Inflater.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#DEFAULT_BUFSIZE">DEFAULT_BUFSIZE</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The default buffer size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#inflater">inflater</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The internal work horse which does the inflation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#myinflater">myinflater</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates whether we have an own (internal) Inflater (<code>true</code>)
+ or one supplied to the constructor (<code>false</code>).</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_java.io.FilterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class java.io.FilterInputStream</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>in</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#InflaterInputStream(java.io.InputStream)">InflaterInputStream</A></B>(java.io.InputStream&nbsp;in)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new InflaterInputStream which reads data in zlib format
+ from the given InputStream, using maximum window size and default
+ input buffer size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater)">InflaterInputStream</A></B>(java.io.InputStream&nbsp;in,
+                    <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new InflaterInputStream which reads data from the
+ given InputStream and decompresses it using the given Inflater
+ and the default input buffer size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int)">InflaterInputStream</A></B>(java.io.InputStream&nbsp;in,
+                    <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                    int&nbsp;size)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new InflaterInputStream which reads data from the
+ given InputStream  and decompresses it using the given Inflater and
+ the given input buffer size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int, boolean)">InflaterInputStream</A></B>(java.io.InputStream&nbsp;in,
+                    <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                    int&nbsp;size,
+                    boolean&nbsp;close_in)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new InflaterInputStream which reads data from the
+ given InputStream and decompresses it using the given Inflater,
+ using the given input buffer size.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#available()">available</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returns an estimation for the number of bytes which can be
+ read from this stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#close()">close</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;closes the stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#fill()">fill</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fills the buffer by input from our source stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;byte[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getAvailIn()">getAvailIn</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns remaining available input data which was not yet
+ used for deflating.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getInflater()">getInflater</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the Inflater used by this stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getTotalIn()">getTotalIn</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gets the total number of bytes read from our source stream
+ (i.e. compressed data).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#getTotalOut()">getTotalOut</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gets the total number of bytes read from this stream
+ (i.e. decompressed data).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)">mark</A></B>(int&nbsp;readlimit)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does nothing.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#markSupported()">markSupported</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returns always <code>false</code> to indicate that <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)"><CODE>mark(int)</CODE></A> is not
+ supported by this stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#read()">read</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reads one uncompressed byte from the stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#read(byte[], int, int)">read</A></B>(byte[]&nbsp;b,
+     int&nbsp;off,
+     int&nbsp;len)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reads some bytes of inflated data into an array.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#readHeader()">readHeader</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Makes sure that our Inflater has read and parsed the whole header.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#reset()">reset</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Throws always an exception, because <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)"><CODE>mark(int)</CODE></A> and <code>reset</code>
+ are not supported by this stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#skip(long)">skip</A></B>(long&nbsp;n)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skips a number of deflated bytes.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.io.FilterInputStream"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.io.FilterInputStream</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>read</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="inflater"><!-- --></A><H3>
+inflater</H3>
+<PRE>
+protected final <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A> <B>inflater</B></PRE>
+<DL>
+<DD>The internal work horse which does the inflation.
+<P>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="buf"><!-- --></A><H3>
+buf</H3>
+<PRE>
+protected byte[] <B>buf</B></PRE>
+<DL>
+<DD>The buffer used for raw (compressed) data from our
+ source stream, to be fed to the Inflater.
+<P>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="DEFAULT_BUFSIZE"><!-- --></A><H3>
+DEFAULT_BUFSIZE</H3>
+<PRE>
+protected static final int <B>DEFAULT_BUFSIZE</B></PRE>
+<DL>
+<DD>The default buffer size.
+<P>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../constant-values.html#com.jcraft.jzlib.InflaterInputStream.DEFAULT_BUFSIZE">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="myinflater"><!-- --></A><H3>
+myinflater</H3>
+<PRE>
+protected boolean <B>myinflater</B></PRE>
+<DL>
+<DD>Indicates whether we have an own (internal) Inflater (<code>true</code>)
+ or one supplied to the constructor (<code>false</code>). In the first
+ case, it will be closed on closing this stream.
+<P>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="InflaterInputStream(java.io.InputStream)"><!-- --></A><H3>
+InflaterInputStream</H3>
+<PRE>
+public <B>InflaterInputStream</B>(java.io.InputStream&nbsp;in)
+                    throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a new InflaterInputStream which reads data in zlib format
+ from the given InputStream, using maximum window size and default
+ input buffer size.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source input stream, from which data is read to
+  be inflated. It will be closed on closing this stream.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater)"><!-- --></A><H3>
+InflaterInputStream</H3>
+<PRE>
+public <B>InflaterInputStream</B>(java.io.InputStream&nbsp;in,
+                           <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater)
+                    throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a new InflaterInputStream which reads data from the
+ given InputStream and decompresses it using the given Inflater
+ and the default input buffer size.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source input stream, from which data is read to
+  be inflated. It will be closed on closing this stream.<DD><CODE>inflater</CODE> - the Inflater which will do the work.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int)"><!-- --></A><H3>
+InflaterInputStream</H3>
+<PRE>
+public <B>InflaterInputStream</B>(java.io.InputStream&nbsp;in,
+                           <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                           int&nbsp;size)
+                    throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a new InflaterInputStream which reads data from the
+ given InputStream  and decompresses it using the given Inflater and
+ the given input buffer size.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source input stream, from which data is read to
+  be inflated. It will be closed on closing this stream.<DD><CODE>inflater</CODE> - the Inflater which will do the work.<DD><CODE>size</CODE> - the size of the internal buffer.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="InflaterInputStream(java.io.InputStream, com.jcraft.jzlib.Inflater, int, boolean)"><!-- --></A><H3>
+InflaterInputStream</H3>
+<PRE>
+public <B>InflaterInputStream</B>(java.io.InputStream&nbsp;in,
+                           <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A>&nbsp;inflater,
+                           int&nbsp;size,
+                           boolean&nbsp;close_in)
+                    throws java.io.IOException</PRE>
+<DL>
+<DD>Creates a new InflaterInputStream which reads data from the
+ given InputStream and decompresses it using the given Inflater,
+ using the given input buffer size.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>in</CODE> - the source input stream, from which data is read to
+  be inflated.<DD><CODE>inflater</CODE> - the Inflater which will do the work.<DD><CODE>size</CODE> - the size of the internal buffer.<DD><CODE>close_in</CODE> - if <code>true</code>, the source input stream will closed
+  on closing this stream. If <code>false</code>, it will left open, allowing
+  more data to be read from it directly.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="read()"><!-- --></A><H3>
+read</H3>
+<PRE>
+public int <B>read</B>()
+         throws java.io.IOException</PRE>
+<DL>
+<DD>reads one uncompressed byte from the stream.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>read</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>-1, if we arrived at the end of input,
+   the read byte (as an <code>int</code> in the range [0, 255]) otherwise.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="read(byte[], int, int)"><!-- --></A><H3>
+read</H3>
+<PRE>
+public int <B>read</B>(byte[]&nbsp;b,
+                int&nbsp;off,
+                int&nbsp;len)
+         throws java.io.IOException</PRE>
+<DL>
+<DD>Reads some bytes of inflated data into an array.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>read</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>b</CODE> - the array into which to put the read data.<DD><CODE>off</CODE> - the offset in the array from which
+    on the inflated data should be put.<DD><CODE>len</CODE> - the size of the array segment into which to put the data.
+<DT><B>Returns:</B><DD>the number of bytes read, or -1 if we arrived at end of stream.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="available()"><!-- --></A><H3>
+available</H3>
+<PRE>
+public int <B>available</B>()
+              throws java.io.IOException</PRE>
+<DL>
+<DD>returns an estimation for the number of bytes which can be
+ read from this stream.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>available</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>either 0 (if we are already at end of file) or 1 (otherwise).
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if the stream is already closed.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="skip(long)"><!-- --></A><H3>
+skip</H3>
+<PRE>
+public long <B>skip</B>(long&nbsp;n)
+          throws java.io.IOException</PRE>
+<DL>
+<DD>Skips a number of deflated bytes.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>skip</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>n</CODE> - a suggestion of how many bytes we should skip.
+<DT><B>Returns:</B><DD>the number of bytes really skipped (which might be less).
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="close()"><!-- --></A><H3>
+close</H3>
+<PRE>
+public void <B>close</B>()
+           throws java.io.IOException</PRE>
+<DL>
+<DD>closes the stream.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>close</CODE> in interface <CODE>java.io.Closeable</CODE><DT><B>Overrides:</B><DD><CODE>close</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fill()"><!-- --></A><H3>
+fill</H3>
+<PRE>
+protected void <B>fill</B>()
+             throws java.io.IOException</PRE>
+<DL>
+<DD>fills the buffer by input from our source stream.
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="markSupported()"><!-- --></A><H3>
+markSupported</H3>
+<PRE>
+public boolean <B>markSupported</B>()</PRE>
+<DL>
+<DD>returns always <code>false</code> to indicate that <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)"><CODE>mark(int)</CODE></A> is not
+ supported by this stream.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>markSupported</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="mark(int)"><!-- --></A><H3>
+mark</H3>
+<PRE>
+public void <B>mark</B>(int&nbsp;readlimit)</PRE>
+<DL>
+<DD>Does nothing.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>mark</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="reset()"><!-- --></A><H3>
+reset</H3>
+<PRE>
+public void <B>reset</B>()
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Throws always an exception, because <A HREF="../../../com/jcraft/jzlib/InflaterInputStream.html#mark(int)"><CODE>mark(int)</CODE></A> and <code>reset</code>
+ are not supported by this stream.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>reset</CODE> in class <CODE>java.io.FilterInputStream</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTotalIn()"><!-- --></A><H3>
+getTotalIn</H3>
+<PRE>
+public long <B>getTotalIn</B>()</PRE>
+<DL>
+<DD>gets the total number of bytes read from our source stream
+ (i.e. compressed data).
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTotalOut()"><!-- --></A><H3>
+getTotalOut</H3>
+<PRE>
+public long <B>getTotalOut</B>()</PRE>
+<DL>
+<DD>gets the total number of bytes read from this stream
+ (i.e. decompressed data).
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAvailIn()"><!-- --></A><H3>
+getAvailIn</H3>
+<PRE>
+public byte[] <B>getAvailIn</B>()</PRE>
+<DL>
+<DD>Returns remaining available input data which was not yet
+ used for deflating.
+ This is mainly useful when in an application protocol other
+ data follows after the deflated one (i.e. after "end-of-file").
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="readHeader()"><!-- --></A><H3>
+readHeader</H3>
+<PRE>
+public void <B>readHeader</B>()
+                throws java.io.IOException</PRE>
+<DL>
+<DD>Makes sure that our Inflater has read and parsed the whole header.
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInflater()"><!-- --></A><H3>
+getInflater</H3>
+<PRE>
+public <A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib">Inflater</A> <B>getInflater</B>()</PRE>
+<DL>
+<DD>Returns the Inflater used by this stream.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../com/jcraft/jzlib/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/InflaterInputStream.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../com/jcraft/jzlib/Inflater.html" title="class in com.jcraft.jzlib"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../com/jcraft/jzlib/JZlib.html" title="class in com.jcraft.jzlib"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?com/jcraft/jzlib/InflaterInputStream.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="InflaterInputStream.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+This is an inofficial Javadoc created by Pa&#365;lo Ebermann.
+        Have a look at the <a href="http://www.jcraft.com/jzlib/">official homepage</a>.
+      
+</BODY>
+</HTML>
