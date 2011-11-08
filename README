@@ -1,3 +1,9 @@
+Note: The branch with-ant contains additional build infrastructure
+to easily create javadocs using ant. It will regularly rebased onto
+the branch added-documentation, so don't rely on this branch's
+commit-IDs staying constant.
+
+-----------
 
                                      JZlib
 
