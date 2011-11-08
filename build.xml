@@ -31,8 +31,15 @@
 	     destdir="${javadoc}"
 	     classpath="${build}"
 	     encoding="US-ASCII"
+             use="yes"
+             windowtitle="JZlib API"
 	     >
+      <arg value="-notimestamp" />
       <package name="com.jcraft.jzlib" />
+      <doctitle>JZlib – zlib in pure Java(TM)</doctitle>
+      <bottom>This is an inofficial Javadoc created by Pa&amp;#365;lo Ebermann.
+        Have a look at the &lt;a href="http://www.jcraft.com/jzlib/">official homepage&lt;/a>.
+      </bottom>
     </javadoc>
   </target>
 
